@@ -1,48 +1,39 @@
-import React, { useState, useRef } from 'react'
-// import useStyles from './styles';
-// import styles from './styles';
 
+import React, { useState, useRef } from 'react'
 import { TextField, FormLabel, Grid, Typography, Card, CardContent } from '@material-ui/core';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
-
-
-export default function Form() {
+// import { useNavigate } from 'react-router-dom'
+export default function NewVisitorForm() {
   // const classes = useStyles();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const[userData, setUserData] = useState({
     name:'',
     phone:'',
     email:'',
-    date:'',
-    time:'',
-  })
+   })
   const [submitted, setSubmitted] = useState(false);
-
   // useEffect(()=>{console.log(userData);
   // }, [userData])
   
-
-  const url = 'http://localhost:5000/visitors'; 
+  const url = 'http://localhost:5000/createVisitor'; 
  
   //req to connect to backend using axios for API and Create post also
   const handleSubmit = (e) => {
    e.preventDefault()
+  
    axios.post(url, userData)
    .then((res) => console.log(res))
    .catch((err) => console.log(err));
-
-   navigate("/components/Visitors");
-
+   alert("Form submitted successfully. Name: " + userData.name);
+  //  window.location.reload();
   setSubmitted(true);
   }
   const formRef = useRef(null);
-
   const handleClear = () => {
     formRef.current.reset();
     setSubmitted(false);
 };
-  // console.log(userData);
+  console.log(userData);
   return (
     <div className="Form"> 
     <Typography gutterBottom variant="h3" align="center">
@@ -72,24 +63,23 @@ export default function Form() {
     <FormLabel>email:</FormLabel>
     <TextField type='email'name='email' placeholder='Enter your email'variant='outlined' fullwidth='true' required  onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
     </Grid>
-    <Grid item xs={12}>
+    {/* <Grid item xs={12}>
     <FormLabel>Date:</FormLabel>
     <TextField type='number'name='date' placeholder='Enter date' variant='outlined' fullwidth='true' required  onChange={(e) => setUserData({ ...userData, date: e.target.value })}  />
-    </Grid>
-    <Grid item xs={12}>
+    </Grid> */}
+    {/* <Grid item xs={12}>
     <FormLabel>Time:</FormLabel>
     <TextField type='number'name='time' placeholder='Enter In time' variant='outlined' fullwidth='true' required onChange={(e) => setUserData({ ...userData, time: e.target.value })} />
-    </Grid>
+    </Grid> */}
   <button type='submit' >Submit</button>
   <button type='button' onClick={handleClear}>Clear</button>
   {submitted && <p>Form submitted!</p>}
-
  
   </Grid>
 </form>
 </CardContent>
-        </Card>
-      </Grid>
+   </Card>
+   </Grid>
      
     </div>
   )

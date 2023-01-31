@@ -1,0 +1,175 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import UpdateProfile from './UpdateProfile';
+import NewVisitorForm from './NewVisitorForm';
+
+const Phone = () => {
+  const [phone, setPhone] = useState('');
+  const [visitorData, setVisitorData] = useState(null);
+  const [showUpdateProfile, setShowUpdateProfile] = useState(false);
+
+  const handlePhoneChange = e => {
+    setPhone(e.target.value);
+  };
+const url = 'http://localhost:5000/getVisitor';
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const response = await axios.post(url, { phone });
+    const visitor = response.data;
+    setVisitorData(visitor);
+    if (visitor) {
+      setShowUpdateProfile(true);
+    }
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+      Enter Your Phone Number
+        <input
+          type="number"
+          name="phone"
+          value={phone}
+          onChange={handlePhoneChange}
+        />
+        <button type="submit">Check-In</button>
+      </form>
+      {showUpdateProfile ? (
+        <UpdateProfile visitorData={visitorData} />
+      ) : (
+        <NewVisitorForm phone={phone} />
+      )}
+    </div>
+  );
+};
+
+export default Phone;
+
+
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+// import UpdateProfile from './UpdateProfile';
+// import NewVisitorForm from './NewVisitorForm';
+// import Header from '../Header/Header'
+
+// export default function PhoneCheckIn() {
+//   const [phone, setPhone] = useState('');
+//   const [visitorData, setVisitorData] = useState({});
+//   const [showUpdateProfile, setShowUpdateProfile] = useState(false);
+//   const [showNewVisitorForm, setShowNewVisitorForm] = useState(false);
+
+//   const checkInUrl = 'http://localhost:5000/checkIn'; 
+
+//   function handleChange(e) {
+//     setPhone(e.target.value);
+//   }
+
+//   function handleSubmit(e) {
+//     e.preventDefault();
+//     axios.post(checkInUrl, { phone })
+//       .then(res => {
+//         if (res.data) {
+//           setVisitorData(res.data);
+//           setShowUpdateProfile(true);
+//         } else {
+//           setShowNewVisitorForm(true);
+//         }
+//       })
+//       .catch(err => console.error(err));
+//   }
+
+//   return (
+//     <div>
+     
+//       <form onSubmit={handleSubmit}>
+//         <label>
+//           Phone Number:
+//           <input
+//             type="number"
+//             name="phone"
+//             value={phone}
+//             onChange={handleChange}
+//           />
+//         </label>
+//         <button type="submit">Check-In</button>
+//       </form>
+//       {showUpdateProfile && <UpdateProfile visitorData={visitorData} />}
+//       {showNewVisitorForm && <NewVisitorForm phone={phone} />}
+//     </div>
+//   );
+// }
+
+
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+// import Header from '../Header/Header'
+// import {useNavigate} from 'react-router-dom'
+
+// export default function Phone() {
+//   const navigate = useNavigate();
+//   const [phone, setPhone] = useState('');
+//   const [visitorData, setVisitorData] = useState({});
+
+//   const url = 'http://localhost:5000/getVisitor'; 
+
+//   useEffect(() => {
+//     axios.get(url, phone )
+//       .then(res => visitorData(res.data))
+//       .catch(err => console.error(err));
+//   }, [phone]);
+
+//   function handleChange(e) {
+//     e.preventDefault();
+//     setVisitorData(e.target.value);
+  
+//   }
+
+//   return (
+//     <div>
+//       <Header />
+//       Enter Your Phone Number
+//       <><input
+//       type='number'
+//       name='phone'
+//       onChange={handleChange}
+//       value={phone} />
+//       </>
+
+//       <button type='submit' onClick={()=> navigate('VisitorForm')}>
+//         {phone ?  navigate('VisitorForm') : navigate('CreateVisitorProfile')}Check-In</button>
+   
+        
+     
+//     </div>
+//   );
+// }
+
+
+
+// const FormButton = () => {
+//   const [showForm, setShowForm] = useState(false);
+ 
+//   const handleClick = () => {
+//     setShowForm(!showForm);
+//   };
+ 
+//   return (
+//     <div>
+//       <Header />
+//       {/* <Admin /> */}
+   
+//       <Button  type='submit'  variant='contained' size='large' color='inherit' fullWidth onClick={handleClick}>
+//         {showForm ? 'Hide Form' : 'Check-In'}
+//       </Button>
+      
+//       {showForm && <Form />
+        
+//        }
+//     </div>
+//   );
+// };
+ 
+// export default FormButton;
+
+
