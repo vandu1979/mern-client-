@@ -1,45 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import UpdateProfile from './UpdateProfile';
 import NewVisitorForm from './NewVisitorForm';
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
-const Phone = () => {
-  const [phone, setPhone] = useState('');
-  const [visitorData, setVisitorData] = useState(null);
-  const [showUpdateProfile, setShowUpdateProfile] = useState(false);
+const Phone = ({handleSubmit, phone, handlePhoneChange}) => {
+ 
 
-  const handlePhoneChange = e => {
-    setPhone(e.target.value);
-  };
-const url = 'http://localhost:5000/getVisitor';
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    const response = await axios.post(url, { phone });
-    const visitor = response.data;
-    setVisitorData(visitor);
-    if (visitor) {
-      setShowUpdateProfile(true);
-    }
-  };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
       Enter Your Phone Number
         <input
-          type="number"
+          type="tel"
+          // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           name="phone"
           value={phone}
           onChange={handlePhoneChange}
         />
         <button type="submit">Check-In</button>
+        {/* <Link to="/UpdateProfile"><button type='submit'>Check-In</button></Link> */}
       </form>
-      {showUpdateProfile ? (
+      {/* {showUpdateProfile ? (
         <UpdateProfile visitorData={visitorData} />
       ) : (
         <NewVisitorForm phone={phone} />
-      )}
+      )} */}
     </div>
   );
 };
