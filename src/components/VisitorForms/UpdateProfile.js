@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from 'react'
+
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import axios from 'axios';
 // import style from './styles';
 import { TextField, FormLabel, Grid, Typography, Card, CardContent } from '@material-ui/core';
-import { Button } from '@material-ui/core';
+// import { Button } from '@material-ui/core';
 // import { useNavigate } from 'react-router-dom';
 // import VisitorForm from '../VisitorForm/VisitorForm'
 
-
+// const visitor_id=visitor._id
 export default function UpdateProfile({userData, updatedVisitor, setUpdatedVisitor}) {
+// export default function UpdateProfile({updatedVisitor}) {
   // const navigate = useNavigate();
-  // const url = 'http://localhost:5000/visitors'; 
-  const [data, setData] = useState('');
+   const url = 'http://localhost:5000/updateVisitor'; 
+  // const [data, setData] = useState('');
   // const[userData, setUserData] = useState({
   // const [updatedVisitor, setUpdatedVisitor] = useState({
      
@@ -19,11 +23,11 @@ export default function UpdateProfile({userData, updatedVisitor, setUpdatedVisit
   //  email: userData.email,
   // });
   // console.log(userData)
-  const [submitted, setSubmitted] = useState(false);
+  // const [submitted, setSubmitted] = useState(false);
   //Using Modal from material ui
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  // const [open, setOpen] = React.useState(false);
+  // const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -41,39 +45,40 @@ export default function UpdateProfile({userData, updatedVisitor, setUpdatedVisit
   // if (!data) {
   //   return <p>Loading...</p>;
   // }
-console.log(updatedVisitor)
+// console.log(updatedVisitor)
 
 //Delete the visitor
-  const deleteVisitor= (id) => {
-    console.log(id);
+  // const deleteVisitor= (id) => {
+  //   console.log(id);
 
-    axios
-      .delete(`/delete/${id}`)
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
+  //   axios
+  //     .delete(`/delete/${id}`)
+  //     .then((res) => console.log(res))
+  //     .catch((error) => console.log(error));
 
-    window.location.reload();
-  };
+  //   window.location.reload();
+  // };
   // const formRef = useRef(null);
 //   const handleClear = () => {
 //     formRef.current.reset();
 //     setSubmitted(false);
 // };
-
+const navigate = useNavigate();
+console.log(updatedVisitor._id)
   //update the visitor
-  const updateVisitor = (data) => {
-    setUpdatedVisitor(data);
-  // console.log(data)
-  handleOpen();
+  const updateVisitor = (e) => {
+e.preventDefault();
+
+axios.put(`${url}/${updatedVisitor._id}`, updatedVisitor).then((res)=> {navigate('/checkin')}).catch((error)=> {console.log('error')})
   }
 
 
 return ( 
 
   <div className="Form validatedForm"> 
-  {/* <Typography gutterBottom variant="h3" align="center">
-  Welcome 
-   </Typography> */}
+  <Typography gutterBottom variant="h3" align="center">
+ Please Update Your Profile If Any Change
+   </Typography>
   <Grid>
     <Card style={{ maxWidth: 450, padding: "20px 5px", margin: "0 auto" }}>
       <CardContent>
@@ -82,7 +87,7 @@ return (
         Please Update your Profile
       </Typography> 
  
-<form  onSubmit={UpdateProfile}>
+<form  onSubmit={updateVisitor}>
 
 <Grid container spacing={1}>
     <Grid xs={12} sm={6} item>
@@ -108,7 +113,7 @@ return (
   </Grid> */}
 <button type='submit' >Submit</button>
 <button type='button'>Clear</button>
-{submitted && <p>Form submitted!</p>}
+{/* {submitted && <p>Form submitted!</p>} */}
 
 </Grid>
 </form>

@@ -4,10 +4,54 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
+.HomePage {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 50px;
+    text-align: center;
+    font-size: x-large;
+  }
 
-/* .validatedForm {
-    display: none;
-} */
+  .button {
+    background-color:  #00aeba; 
+    border: none;
+    color: white;
+    padding: 15px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%;
+    border: 2px solid #af634c;
+   
+  }   
+  .button:hover {
+    background-color:#00aeba; /* Green */
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
+  }
+ .button2 {
+    background-color:  #00aeba; 
+    border: none;
+    color: white;
+    padding: 15px 28px;
+    text-align: center; 
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%;
+    border: 2px solid #af634c;
+    justify-content: flex-end;
+   
+ }
 
-
+ .Thanks {
+    font-size: xx-large;
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 50px;
+    text-align: center;
     
+ }
