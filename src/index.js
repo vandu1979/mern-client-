@@ -12,13 +12,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <App />
-      {/* <Routes>
      
-      <Route path="/" element={<App />}></Route>
-      {/* <Route path="/" element={<DefaultVisitorHome />}></Route>
-      <Route path="/create" element={<NewVisitorForm />}></Route>
-      <Route path="/create/posts" element={<UpdateProfile />}></Route> */}
-      {/* </Routes> */} 
     </BrowserRouter>
   </React.StrictMode>
 );

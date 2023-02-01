@@ -28,17 +28,15 @@ const [deleted, setDeleted] = useState(false)
   }
   return (
 
-    <div>
+    
+<div className='VisitorLog'>
         {data.map((data) => 
 <div onClick={()=>{deleteVisitor(data._id)}}>
 <p>{data.name}</p>
 <p>{data.phone}</p>
 <p>{data.email}</p>
-    
-
 </div>
-
-        )}
-    </div>
+)}
+</div>
   )
 }

@@ -61,9 +61,8 @@ const url = 'http://localhost:5000/getVisitor';
   <Header />
   <Routes>
   
- {/* <<Header />> */}
- {/* <DefaultVisitorHome /> */}
-        <Route path="/" element={<DefaultVisitorHome handleSubmit={handleSubmit} phone={phone} handlePhoneChange={handlePhoneChange}/>}/>
+ 
+      <Route path="/" element={<DefaultVisitorHome handleSubmit={handleSubmit} phone={phone} handlePhoneChange={handlePhoneChange}/>}/>
       <Route path="/create" element={<NewVisitorForm />}/>
       <Route path="/create/posts" element={<UpdateProfile  updatedVisitor={updatedVisitor} setUpdatedVisitor={setUpdatedVisitor} />}/>
       <Route path="/admin" element={<Admin />}/>

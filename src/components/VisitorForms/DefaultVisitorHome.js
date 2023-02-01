@@ -2,10 +2,10 @@ import React from 'react';
 // import axios from 'axios';
 // import { Link } from 'react-router-dom'
 
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Phone = ({handleSubmit, phone, handlePhoneChange}) => {
- 
+ const navigate = useNavigate();
 
 
   return (
@@ -28,9 +28,7 @@ const Phone = ({handleSubmit, phone, handlePhoneChange}) => {
       </form>
       
     </div>
-    <div>
-<button className='button2' type="submit" align="right">Admin-View</button>
-    </div> 
+ 
     </> 
 
   );
