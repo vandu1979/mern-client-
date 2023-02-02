@@ -1,7 +1,7 @@
 import React from 'react';
-// import axios from 'axios';
-// import { Link } from 'react-router-dom'
+
 import images from '../../images/Activate-Work-Logo.png'
+import images2 from '../../images/pexels-pixabay-270348.jpg'
 
 import { useNavigate } from 'react-router-dom';
 
@@ -29,7 +29,9 @@ const Phone = ({handleSubmit, phone, handlePhoneChange}) => {
       </form>
       
     </div>
-    <img className='bottom-right' src={images} alt="Your Image"/>
+    <img className='coding' src={images2} alt="pic"/>
+    
+    <img className='bottom-right' src={images} alt="pic1"/> 
     <div> 
 <button className='button2' onClick={()=>{navigate('/admin')}}>Admin-View</button>
     </div> 

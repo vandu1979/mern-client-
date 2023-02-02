@@ -12,7 +12,7 @@ export default function App() {
   // ==========================App Begin============================
   const [phone, setPhone] = useState('');
   const [visitorData, setVisitorData] = useState(null);
-  const [showUpdateProfile, setShowUpdateProfile] = useState(false);
+  // const [showUpdateProfile, setShowUpdateProfile] = useState(false);
   const [updatedVisitor, setUpdatedVisitor] = useState({
    name: '',
    phone: '',

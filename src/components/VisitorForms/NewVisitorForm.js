@@ -2,7 +2,9 @@
 import React, { useState } from 'react'
 import { TextField, FormLabel, Grid, Typography, Card, CardContent } from '@material-ui/core';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 export default function NewVisitorForm() {
+  const navigate = useNavigate();
   const[userData, setUserData] = useState({
     name:'',
     phone:'',
@@ -23,7 +25,8 @@ export default function NewVisitorForm() {
     email:'',
    }))
    .catch((err) => console.log(err));
-   alert("Form submitted successfully. Name: " + userData.name);
+   navigate('/checkin')
+  //  alert("Form submitted successfully. Name: " + userData.name);
   //  window.location.reload();
   setSubmitted(true);
   }
@@ -35,9 +38,7 @@ export default function NewVisitorForm() {
   console.log(userData);
   return (
     <div className="Form validatedForm"> 
-    {/* <Typography gutterBottom variant="h3" align="center">
-    Welcome 
-     </Typography> */}
+ 
     <Grid>
       <Card style={{ maxWidth: 450, padding: "20px 5px", margin: "0 auto" }}>
         <CardContent>
@@ -62,14 +63,7 @@ export default function NewVisitorForm() {
     <FormLabel>email:</FormLabel>
     <TextField type='email'name='email' placeholder='Enter your email'variant='outlined' fullwidth='true' required  onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
     </Grid>
-    {/* <Grid item xs={12}>
-    <FormLabel>Date:</FormLabel>
-    <TextField type='number'name='date' placeholder='Enter date' variant='outlined' fullwidth='true' required  onChange={(e) => setUserData({ ...userData, date: e.target.value })}  />
-    </Grid> */}
-    {/* <Grid item xs={12}>
-    <FormLabel>Time:</FormLabel>
-    <TextField type='number'name='time' placeholder='Enter In time' variant='outlined' fullwidth='true' required onChange={(e) => setUserData({ ...userData, time: e.target.value })} />
-    </Grid> */}
+ 
   <button type='submit' >Submit</button>
   <button type='button'>Clear</button>
   {submitted && <p>Form submitted!</p>}

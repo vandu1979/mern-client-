@@ -2,13 +2,13 @@ import React from "react";
 import { Container, AppBar, Typography } from '@material-ui/core';
 import images from '../../images/pic.jfif';
 import useStyles from './styles';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 
 
 export default function Header() {
     const classes = useStyles();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     
     return (
 

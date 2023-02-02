@@ -1,68 +1,14 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import axios from 'axios';
-// import style from './styles';
 import { TextField, FormLabel, Grid, Typography, Card, CardContent } from '@material-ui/core';
-// import { Button } from '@material-ui/core';
-// import { useNavigate } from 'react-router-dom';
-// import VisitorForm from '../VisitorForm/VisitorForm'
 
-// const visitor_id=visitor._id
+
 export default function UpdateProfile({userData, updatedVisitor, setUpdatedVisitor}) {
-// export default function UpdateProfile({updatedVisitor}) {
-  // const navigate = useNavigate();
+
    const url = 'http://localhost:5000/updateVisitor'; 
-  // const [data, setData] = useState('');
-  // const[userData, setUserData] = useState({
-  // const [updatedVisitor, setUpdatedVisitor] = useState({
-     
-  //   name: userData.name,
-  //  phone: userData.phone,
-  //  email: userData.email,
-  // });
-  // console.log(userData)
-  // const [submitted, setSubmitted] = useState(false);
-  //Using Modal from material ui
-  // const [open, setOpen] = React.useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await axios.get('http://localhost:5000/allVisitor');
-  //       setData(res.data);
-  //       // console.log(res.data)
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
-  // console.log(data)
-  // if (!data) {
-  //   return <p>Loading...</p>;
-  // }
-// console.log(updatedVisitor)
-
-//Delete the visitor
-  // const deleteVisitor= (id) => {
-  //   console.log(id);
-
-  //   axios
-  //     .delete(`/delete/${id}`)
-  //     .then((res) => console.log(res))
-  //     .catch((error) => console.log(error));
-
-  //   window.location.reload();
-  // };
-  // const formRef = useRef(null);
-//   const handleClear = () => {
-//     formRef.current.reset();
-//     setSubmitted(false);
-// };
+ 
 const navigate = useNavigate();
 console.log(updatedVisitor._id)
   //update the visitor
@@ -103,14 +49,7 @@ return (
   <FormLabel>email:</FormLabel>
   <TextField type='email'name='email' placeholder='Enter your email'variant='outlined' value={updatedVisitor.email} fullwidth='true' required  onChange={(e) => setUpdatedVisitor({ ...updatedVisitor, email: e.target.value })} />
   </Grid>
-  {/* <Grid item xs={12}>
-  <FormLabel>Date:</FormLabel>
-  <TextField type='number'name='date' placeholder='Enter date' variant='outlined' fullwidth='true' required  onChange={(e) => setUserData({ ...userData, date: e.target.value })}  />
-  </Grid> */}
-  {/* <Grid item xs={12}>
-  <FormLabel>Time:</FormLabel>
-  <TextField type='number'name='time' placeholder='Enter In time' variant='outlined' fullwidth='true' required onChange={(e) => setUserData({ ...userData, time: e.target.value })} />
-  </Grid> */}
+ 
 <button type='submit' >Submit</button>
 <button type='button'>Clear</button>
 {/* {submitted && <p>Form submitted!</p>} */}
