@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 <h1>Introduction</h1>
-<img src="src/images/Frontend.jpg" height="150px"width="150px">
+<img src="src/images/Frontend1.jpg" height="150px"width="150px">
 <h3>A visitor can check-in entering their phone number, If we find data of that visitor it will take visitor to update page in case of any change in profile otherwise for new visitor it will take visitor to create new profile. At the other end Admin have right to delete the the visitor info.
 
 <h1> Technologies Used </h1>
