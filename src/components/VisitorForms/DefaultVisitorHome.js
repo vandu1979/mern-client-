@@ -29,7 +29,7 @@ const Phone = ({handleSubmit, phone, handlePhoneChange}) => {
       </form>
       
     </div>
-    <img src={images} alt="Your Image"/>
+    <img className='bottom-right' src={images} alt="Your Image"/>
     <div> 
 <button className='button2' onClick={()=>{navigate('/admin')}}>Admin-View</button>
     </div> 
