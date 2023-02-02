@@ -24,7 +24,7 @@ const navigate = useNavigate();
     setPhone(e.target.value);
   };
   //connecting with backend
-const url = 'http://localhost:5000/getVisitor';
+const url = 'https://mern-backend-yyk6.onrender.com/getVisitor';
   const handleSubmit = async e => {
     e.preventDefault();
     const phoneNumber = parseInt(e.target.phone.value)
