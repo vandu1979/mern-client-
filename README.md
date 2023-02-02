@@ -11,6 +11,7 @@
 <h3>5. Axios -A library used to send asynchronous HTTP requests to REST endpoints.</h3>
 <h3>6. Body-Parser -Body parsing middleware responsible for parsing the incoming request bodies in a middleware before it's handled. </h3>
 <h3>7. Dotenv - Manages environment variables from development to production.</h3>
+<h3>8. Material ui - To style the frontend.<h3>
 <h3>8. CORS - Node.js package which supports secure cross-origin requests and data transfers between browsers and web servers.</h3>
 <h3>9.Redux -Standalone library that can be used with any UI layer or framework </h3>
 <h3> To deloyed the app I use render.com<h3>

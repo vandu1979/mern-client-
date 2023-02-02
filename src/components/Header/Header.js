@@ -18,9 +18,7 @@ export default function Header() {
      <Typography className={classes.heading}
      variant="h2" align="center">Welcome To Activate Works</Typography>
       <img className={classes.image} src={images} alt="pic" height="60" />
-      <div>
-<button className='button2' onClick={()=>{navigate('/admin')}}>Admin-View</button>
-    </div> 
+  
       </AppBar>
 
   </Container>
