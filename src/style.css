@@ -197,10 +197,10 @@ body {
             background-color:greenyellow
           }
           
-          button:active {
+          /* button:active {
             background-color: #873e8e;
             transform: translateY(2px);
-          }
+          } */
           
           p {
             margin-top: 20px;
